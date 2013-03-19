@@ -1,0 +1,73 @@
+body{
+	background-color: black;
+	font-family: 'VT323', cursive;
+	color: white;
+}
+
+input {
+	color: white;
+    border: 0;
+    outline: 0;
+    font-family: 'VT323', cursive;
+    background: grey;
+    width: 100px;
+}
+ button{ 
+ 	background:none;
+ 	font-family: 'VT323', cursive;
+	color: white;
+	font-size: 1em;
+ }
+
+button.tip { 
+	display: none;
+}
+
+ #hacky_alert_box{
+ 	position: absolute;
+	left: 380px;
+	top: 250px;
+	padding: 30px;
+	background:rgba(84,84,84,0.92);
+	z-index:-1;
+	opacity: 0;
+}
+
+ #hacky_choice_box{
+ 	position: absolute;
+	left: 330px;
+	top: 230px;
+	padding: 33px;
+	background:rgba(84,84,84,0.92);
+	z-index:-1;
+	opacity: 0;
+}
+
+#align{
+	display: inline;
+	margin: 30px;
+
+}
+#title{
+	position: absolute;
+	left:430px;
+}
+
+#column_one{
+	position: absolute;
+	left: 260px;
+	top: 203px;
+}
+
+#column_two {
+	position: absolute;
+	left: 576px;
+	top: 203px;
+}
+
+#column_three{
+	position: absolute;
+	left: 220px;
+	top: 67px;
+}
+
