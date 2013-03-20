@@ -3,7 +3,7 @@ window.onload = firstLoad;
 var deal_hand = document.getElementById('deal'),
     risk_it = document.getElementById("risk"),
     tip_it = document.getElementById("tip"),
-    switch_it = document.getElementById("switch");
+    redeal_it = document.getElementById("redeal");
 
 
 //**INITITALIZATION FUNCTIONS**
@@ -16,6 +16,9 @@ function initEverything(){
 	deck_one_notdrawn = [];
 	deck_two_notdrawn = [];
 	hands_dealt = 0;
+  gender = (getRandomInt(0, 100)%2 === 0)?"he":"she";
+  pronoun = (gender === "she")?"her":"his";
+
 	deckInit();
 }
 
@@ -165,7 +168,16 @@ deal_hand.onclick = function (e) {
    	}
    	
    	if (number_of_cards_left == 0){
-   		alert("redeal, ohoho?");
+   	document.getElementById("hacky_alert_box").style.zIndex = 1;
+    document.getElementById("hacky_alert_box").innerHTML = "how about another go?";
+    var j = 0, k = 0;   //arbitrarily chose twenty as increment
+    while(j<=20){
+      k = (j === 20) ? 0: Math.sin(Math.PI/20*j);   //rounding errors makes the actual calculations sligthly off
+      hacky_animation(k, 120*j);
+      j++;
+    }  
+    setTimeout(function(){document.getElementById("hacky_alert_box").style.zIndex = -1;}, 120*20);
+
    		initEverything();
    		
    	}
@@ -188,7 +200,7 @@ risk_it.onclick = function(e){
         number_of_cards_left -= 1;
     }
     
-    var j = 0, k = 0;   //arbitrarily chose twenty as icrement
+    var j = 0, k = 0;   //arbitrarily chose twenty as increment
     while(j<=20){
       k = (j === 20) ? 0: Math.sin(Math.PI/20*j);   //rounding errors makes the actual calculations sligthly off
       hacky_animation(k, 120*j);
@@ -208,31 +220,77 @@ function hacky_animation_two(alpha, timing){
       setTimeout(function(){document.getElementById("hacky_choice_box").style.opacity = alpha;}, timing);
 }
 tip_it.onclick = function(e){
+  //don't know how to get this to work
+  /*
     document.getElementById("hacky_choice_box").style.zIndex = 1;
     document.getElementById("tip_one").style.display = 'inline';
     document.getElementById("tip_two").style.display = 'inline';
     document.getElementById("tip_three").style.display = 'inline';
     document.getElementById("cheapskate").style.display = 'inline';
 
-    var j = 0, k = 0;   //arbitrarily chose ten as icrement
+    var j = 0, k = 0;   //arbitrarily chose ten as increment
     while(j<=10){
       k = Math.sin(Math.PI/2/10*j);   //rounding errors makes the actual calculations sligthly off
       hacky_animation_two(k, 120*j);
       j++;
-    }     
+    }     */   
+
+    document.getElementById("hacky_alert_box").style.zIndex = 1;
+    document.getElementById("hacky_alert_box").innerHTML = "tipped the dealer a fiver.";
+
+    var j = 0, k = 0;   //arbitrarily chose ten as increment
+    while(j<=10){
+      k = Math.sin(Math.PI/2/10*j);   //rounding errors makes the actual calculations sligthly off
+      hacky_animation(k, 120*j);
+      j++;
+    } 
+
+    var chance = getRandomInt(0, 100);
+
+    if (chance<75){
+      var index = getRandomInt(2, number_of_cards_left);
+      setTimeout(function(){document.getElementById("hacky_alert_box").innerHTML = gender + " smiles and winks back.";}, 120*10);
+      deck_one_notdrawn[index] = 0;  //swaps card at random index to ace
+      deck_two_notdrawn[index] = 0;  
+      
+    }
+    if (chance>=75){
+      setTimeout(function(){document.getElementById("hacky_alert_box").innerHTML = gender + " narrows " + pronoun +" eyes.";}, 120*10);
+      removeValueFromArray(deck_one_notdrawn, 0);  //removes ace from each deck
+      removeValueFromArray(deck_two_notdrawn, 0);
+      number_of_cards_left--;
+      document.getElementById("cards_left").innerHTML = "cards left: " + number_of_cards_left;
+
+    }
+
+    
+    var j = 0, k = 0;   //arbitrarily chose ten as increment
+    while(j<=10){
+      k = (j === 10)?0:Math.cos(Math.PI/2/10*j);   //rounding errors makes the actual calculations sligthly off
+      hacky_animation(k, 120*j+120*10);
+      j++;
+    } 
+
+    setTimeout(function(){document.getElementById("hacky_alert_box").style.zIndex = -1;}, 2400);
+
 
 };
 
-switch_it.onclick = function(e){
+redeal_it.onclick = function(e){
     document.getElementById("hacky_alert_box").style.zIndex = 1;
-    document.getElementById("hacky_alert_box").innerHTML = "switched cards left and cards dealt";
-    var j = 0, k = 0;   //arbitrarily chose twenty as icrement
-    while(j<=20){
-      k = (j === 20) ? 0: Math.sin(Math.PI/20*j);   //rounding errors makes the actual calculations sligthly off
+    document.getElementById("hacky_alert_box").innerHTML = "reset and reshuffled. it'll cost ya.";
+    var j = 0, k = 0;   
+    while(j<=30){
+      k = (j === 30) ? 0: Math.sin(Math.PI/30*j);   //rounding errors makes the actual calculations slightly off
       hacky_animation(k, 120*j);
       j++;
     }  
-    setTimeout(function(){document.getElementById("hacky_alert_box").style.zIndex = -1;}, 120*20);
+    setTimeout(function(){document.getElementById("hacky_alert_box").style.zIndex = -1;}, 120*30);
+
+    initEverything();      
+    document.getElementById("cards_left").innerHTML = "cards left: " + number_of_cards_left;
+    document.getElementById("hands_dealt").innerHTML = "number of hands dealt: " + hands_dealt;
+
 
         
 };
