@@ -5,7 +5,6 @@ var deal_hand = document.getElementById('deal'),
     tip_it = document.getElementById("tip"),
     redeal_it = document.getElementById("redeal");
 
-
 //**INITITALIZATION FUNCTIONS**
 
 function firstLoad(){
@@ -290,9 +289,6 @@ redeal_it.onclick = function(e){
     initEverything();      
     document.getElementById("cards_left").innerHTML = "cards left: " + number_of_cards_left;
     document.getElementById("hands_dealt").innerHTML = "number of hands dealt: " + hands_dealt;
-
-
         
 };
-
 

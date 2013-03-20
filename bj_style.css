@@ -23,6 +23,11 @@ button.tip {
 	display: none;
 }
 
+a:link{
+	color:white;
+	text-decoration: none;
+}
+
  #hacky_alert_box{
  	position: absolute;
 	left: 380px;
@@ -55,14 +60,15 @@ button.tip {
 
 #column_one{
 	position: absolute;
-	left: 260px;
-	top: 203px;
+	left: 250px;
+	right: 300px;
+	top: 180px;
 }
 
 #column_two {
 	position: absolute;
 	left: 576px;
-	top: 203px;
+	top: 180px;
 }
 
 #column_three{
@@ -70,4 +76,6 @@ button.tip {
 	left: 220px;
 	top: 67px;
 }
+
+
 

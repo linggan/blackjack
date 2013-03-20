@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<head>
+	<title>Blackjack</title>
+	<link rel="stylesheet" href = "bj_style.css"/>
+	<link href='http://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<h1 id = "title"> <a href = "index.html">BLACKJACK </a></h1>
+	
+	<div id = "column_one">
+		<img src = "cards/b1fv.png"  id = "deck_one_pic"/>
+		<img src = "cards/b1fv.png" id = "deck_two_pic"/>
+		
+		<!--<p> current total </p>
+		<form>
+			<input type="text" id = "total_of_cards_field"/><br/>
+		</form>-->
+		<p id = "cards_left"> cards left: 52</p>
+		<p id = "hands_dealt"> number of hands dealt: 0 </p>
+
+		<button id='deal'> deal hand</button>
+	</div> <!--end of column_one-->
+
+	 <div id = "column_two">
+	 	<p> <br/> <button class="link" id = "risk">risk it?</button></p>
+	 	<p>   <button class="link" id = "tip">tip it?</button> </p>
+	 	<p>   <button class="link" id = "redeal">redeal it?</button> </p>
+
+	 </div><!--end of column_two-->
+
+	 <div id = "column_three">
+	 	<div id = "align"> <a href = "instructions.html">how to play</a></div>
+	 	<div id = "align"><a href = "assignment.html">original homework assignment</a></div>
+	 	<div id = "align"><a href = "source.html"> source code </a></div> 
+	 </div> <!--end of column_three-->
+
+	 <div id = "hacky_alert_box">
+
+	 </div>
+
+	 <div id = "hacky_choice_box">
+	 <p> how much do you want to tip? </p>
+	 	<button class="tip" id = "tip_one">five?</button>
+	 	<button class="tip" id = "tip_two">ten?</button>
+	 	<button class="tip" id = "tip_three">twenty?</button>
+	 	<button class="tip" id = "cheapskate">...nevermind</button>
+	 </div>
+	 
+	<script src='blackjack.js'></script>
+
+</body>
+</html>
